@@ -79,6 +79,7 @@ let listCourses =() => {
 			console.log('ID Curso: ' + course.index);
 			console.log('Docente: ' + course.docente);
 			console.log('Costo: ' + course.precio);
+			console.log('Duracion: ' + course.duracionMeses + ' meses.');
 			console.log('Descripción: ' + course.descripcion);
 			if (course.libres){
 				console.log('Cupos Disponibles: ' + course.libres);
@@ -109,7 +110,8 @@ let inscription = (id, name, surName) => {
 			console.log('Se ha realido la pre-inscripción correctamnte.\nRecuerde pasar por nuestras oficinas para completar la inscripción definitiva');
 		});
 	} else {
-		console.log('ID NO VALIDO. FAVOR VERIFICAR');
+		console.log('ID NO VALIDO. FAVOR VERIFICAR\n');
+		listCourses();
 	}
 }
 
