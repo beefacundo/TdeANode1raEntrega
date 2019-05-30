@@ -73,23 +73,16 @@ LISTA LOS CURSOS DISPONIBLES
 */
 
 let listCourses =() => {
+    let inf = '';
 	for (let course of Cursos){
-		setTimeout(function(){
-			console.log('Curso: ' + course.name);
-			console.log('ID Curso: ' + course.index);
-			console.log('Docente: ' + course.docente);
-			console.log('Costo: ' + course.precio);
-			console.log('Duracion: ' + course.duracionMeses + ' meses.');
-			console.log('Descripción: ' + course.descripcion);
+            inf += 'Curso: ' + course.name + '<br>ID Curso: ' + course.index + '<br>Docente: ' + course.docente + '<br>Costo: ' + course.precio + '<br>Duracion: ' + course.duracionMeses + ' meses.<br>Descripción: ' + course.descripcion;
 			if (course.libres){
-				console.log('Cupos Disponibles: ' + course.libres);
+				inf +=  '<br>Cupos Disponibles: ' + course.libres + '<br><br>';
 			} else {
-				console.log('CURSO AGOTADO');
-			}
-			console.log('\n');
-
-		}, course.index *  	2000);
+				inf +=  '<br>CURSO AGOTADO<br><br>';
+               }
 	}
+    return (inf);
 }
 
 
