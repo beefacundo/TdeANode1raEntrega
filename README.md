@@ -12,4 +12,5 @@ Se presentan 2 soluciones:
 2 - 
  Se utiliza el archio 'index-console.js'
  El mismo espera las instrucciones del usuario.
+ Para salir escribir 'exit'
 
