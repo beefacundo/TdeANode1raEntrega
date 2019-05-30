@@ -71,20 +71,18 @@ let Cursos =[
 /*
 LISTA LOS CURSOS DISPONIBLES
 */
-
 let listCourses =() => {
-    let inf = '';
-	for (let course of Cursos){
-            inf += 'Curso: ' + course.name + '<br>ID Curso: ' + course.index + '<br>Docente: ' + course.docente + '<br>Costo: ' + course.precio + '<br>Duracion: ' + course.duracionMeses + ' meses.<br>Descripción: ' + course.descripcion;
-			if (course.libres){
-				inf +=  '<br>Cupos Disponibles: ' + course.libres + '<br><br>';
-			} else {
-				inf +=  '<br>CURSO AGOTADO<br><br>';
-               }
-	}
-    return (inf);
+        let inf = '';
+            for (let course of Cursos){
+                            inf += 'Curso: ' + course.name + '<br>ID Curso: ' + course.index + '<br>Docente: ' + course.docente + '<br>Costo: ' + course.precio + '<br>Duracion: ' + course.duracionMeses + ' meses.<br>Descripción: ' + course.descripcion;
+                                        if (course.libres){
+                                                            inf +=  '<br>Cupos Disponibles: ' + course.libres + '<br><br>';
+                                                                        } else {
+                                                                                            inf +=  '<br>CURSO AGOTADO<br><br>';
+                                                                                                           }
+                                            }
+                return (inf);
 }
-
 
 /*
 REALIZA LA PREINCSCRIPCION A LOS CURSOS
@@ -100,11 +98,10 @@ let inscription = (id, name, surName) => {
 		newLine = 'Curso: ' + id +'\tNombre: ' + name +'\tApellido: ' + surName + '\n';
 		fs.appendFile('inscripciones.txt', newLine, function(err){
 			if (err) throw err;
-			console.log('Se ha realido la pre-inscripción correctamnte.\nRecuerde pasar por nuestras oficinas para completar la inscripción definitiva');
-		});
+		})
+        return("Se ha realido la pre-inscripción correctamnte.\nRecuerde pasar por nuestras oficinas para completar la inscripción definitiva");
 	} else {
-		console.log('ID NO VALIDO. FAVOR VERIFICAR\n');
-		listCourses();
+		return('ID NO VALIDO. FAVOR VERIFICAR\n'+ listCourses());
 	}
 }
 

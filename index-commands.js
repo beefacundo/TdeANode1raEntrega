@@ -1,3 +1,5 @@
+const express = require('express')
+const app = express()
 let data = require('./datos.js');
 const options = {
 	curso:{
@@ -19,12 +21,17 @@ const argv = require('yargs')
 	.option('listar')
 	.command('inscribir','Realizar Pre-Inscripciín', options)
 	.argv;
-console.log('Bienvenido\n------------------------------\n');
 
-if (argv['_'] == 'listar'){
-	data.listCourses();
-} else if (argv['_'] == 'inscribir'){
-	data.inscription(argv.c, argv.n, argv.a);
-} else {
-	console.log("OPCION NO VALIDA");
-}
+app.get('/', function (req, res){
+        res.send('<h1>Bienvenido Usuario</h1><p> Para ver los cursos disponibles ingrese a "/listar"</p><p>Para realizar la preinscrición ingresar a "incribir/[idCurso]/[nombre]/[apellido]"</p>');
+})
+app.get('/listar', function (req, res){
+        res.send(data.listCourses());
+        console.log("list");
+})
+app.get('/inscribir/:curso/:nombre/:apellido', function (req, res){
+        res.send(data.inscription(req.params['curso'],req.params['nombre'],req.params['apellido']));
+        console.log("insc");
+})
+app.listen(3000)
+
