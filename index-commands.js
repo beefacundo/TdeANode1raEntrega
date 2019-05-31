@@ -23,15 +23,13 @@ const argv = require('yargs')
 	.argv;
 
 app.get('/', function (req, res){
-        res.send('<h1>Bienvenido Usuario</h1><p> Para ver los cursos disponibles ingrese a "/listar"</p><p>Para realizar la preinscrición ingresar a "incribir/[idCurso]/[nombre]/[apellido]"</p>');
+        res.send('<h1>Bienvenido Usuario</h1><p> Para ver los cursos disponibles ingrese a "/listar"</p><p>Para realizar la preinscripción ingresar a "/inscribir/[idCurso]/[nombre]/[apellido]"</p>');
 })
 app.get('/listar', function (req, res){
         res.send(data.listCourses());
-        console.log("list");
 })
 app.get('/inscribir/:curso/:nombre/:apellido', function (req, res){
         res.send(data.inscription(req.params['curso'],req.params['nombre'],req.params['apellido']));
-        console.log("insc");
 })
 app.listen(3000)
 
